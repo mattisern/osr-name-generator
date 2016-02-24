@@ -22,22 +22,19 @@ function randomNameGenerator () {
   return nameList.nameParts.firstNamePart[firstNum] + nameList.nameParts.secondNamePart[secondNum];
 }
 
-// randomClassGenerator should inherit from randomNameGenerator
-
 function randomClassGenerator () {
   var number = parseInt(Math.random() * (nameList.classes.length));
   return nameList.classes[number];
 }
 
-generatedName = randomNameGenerator();
-generatedClass = randomClassGenerator();
-
-print (generatedName + " the level 1 " + generatedClass + ".", "generated-name");
-
-// Too much repetition here
-
-jQuery("#generateNameButton").click(function (){
+function newCharacter () {
   generatedName = randomNameGenerator();
   generatedClass = randomClassGenerator();
-  print (generatedName+ " the level 1 " + generatedClass + ".", "generated-name");
+  print (generatedName + " the level 1 " + generatedClass + ".", "generated-name");
+}
+
+newCharacter ();
+
+jQuery("#generateNameButton").click(function (){
+  newCharacter ();
 });
