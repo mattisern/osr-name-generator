@@ -1,15 +1,15 @@
-var nameList = "";
+var content = "";
 var generatedName = "";
 var generatedClass = "";
 
-var jsonNames = new XMLHttpRequest();
-jsonNames.onreadystatechange = function() {
-  if (jsonNames.readyState == 4 && jsonNames.status == 200) {
-  nameList = JSON.parse(jsonNames.responseText);
+var jsonContent = new XMLHttpRequest();
+jsonContent.onreadystatechange = function() {
+  if (jsonContent.readyState == 4 && jsonContent.status == 200) {
+  content = JSON.parse(jsonContent.responseText);
   }
 };
-jsonNames.open("GET", "http://www.lightly.se/code/osr-name-generator/js/names.json", false);
-jsonNames.send();
+jsonContent.open("GET", "http://www.lightly.se/code/osr-name-generator/js/content.json", false);
+jsonContent.send();
 
 function print (message, div){
   var divId = document.getElementById(div);
@@ -17,14 +17,14 @@ function print (message, div){
 }
 
 function randomNameGenerator () {
-  var firstNum = parseInt(Math.random() * (nameList.nameParts.firstNamePart.length));
-  var secondNum = parseInt(Math.random() * (nameList.nameParts.secondNamePart.length));
-  return nameList.nameParts.firstNamePart[firstNum] + nameList.nameParts.secondNamePart[secondNum];
+  var firstNum = parseInt(Math.random() * (content.nameParts.firstNamePart.length));
+  var secondNum = parseInt(Math.random() * (content.nameParts.secondNamePart.length));
+  return content.nameParts.firstNamePart[firstNum] + content.nameParts.secondNamePart[secondNum];
 }
 
 function randomClassGenerator () {
-  var number = parseInt(Math.random() * (nameList.classes.length));
-  return nameList.classes[number];
+  var number = parseInt(Math.random() * (content.classes.length));
+  return content.classes[number];
 }
 
 function newCharacter () {
