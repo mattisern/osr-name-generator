@@ -1,5 +1,6 @@
 var nameList = "";
 var generatedName = "";
+var generatedClass = "";
 
 var jsonNames = new XMLHttpRequest();
 jsonNames.onreadystatechange = function() {
@@ -15,21 +16,28 @@ function print (message, div){
   divId.innerHTML = message;
 }
 
-function getRandomNumber () {
-  return Math.random() * (nameList.nameParts.firstNamePart.length);
-}
-
 function randomNameGenerator () {
-  var firstNum = parseInt(getRandomNumber());
-  var secondNum = parseInt(getRandomNumber());
+  var firstNum = parseInt(Math.random() * (nameList.nameParts.firstNamePart.length));
+  var secondNum = parseInt(Math.random() * (nameList.nameParts.secondNamePart.length));
   return nameList.nameParts.firstNamePart[firstNum] + nameList.nameParts.secondNamePart[secondNum];
 }
 
-generatedName = randomNameGenerator();
+// randomClassGenerator should inherit from randomNameGenerator
 
-print (generatedName + " ..?", "generated-name");
+function randomClassGenerator () {
+  var number = parseInt(Math.random() * (nameList.classes.length));
+  return nameList.classes[number];
+}
+
+generatedName = randomNameGenerator();
+generatedClass = randomClassGenerator();
+
+print (generatedName + " the level 1 " + generatedClass + ".", "generated-name");
+
+// Too much repetition here
 
 jQuery("#generateNameButton").click(function (){
   generatedName = randomNameGenerator();
-  print (generatedName + " ..?", "generated-name");
+  generatedClass = randomClassGenerator();
+  print (generatedName+ " the level 1 " + generatedClass + ".", "generated-name");
 });

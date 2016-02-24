@@ -3,5 +3,6 @@
     {
       "firstNamePart" : ["Forn", "Darn", "Born", "Tar", "Gnar", "Bar", "Hor", "Glar", "Dobel", "Art"],
       "secondNamePart" : ["lark", "hor", "lar", "slord", "larf", "nor", "blarn", "fel", "nark", "lak"]
-    }
+    },
+  "classes" : ["magic-user", "fighter", "thief", "cleric"]
 }
